@@ -1,0 +1,16 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-plusplus": "off",
+    "no-undef": "warn",
+    "consistent-return": "off",
+    "no-use-before-define": "off",
+    "arrow-body-style": "off",
+    "no-unused-vars": "warn",
+    "no-param-reassign": "warn",
+    "import/prefer-default-export": "off",
+    "no-console": "off"
+  }
+}
