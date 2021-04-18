@@ -1,5 +1,8 @@
 export const mount = (node, target) => {
-  target.appendChild(node);
-  // target.replaceWith(node);
+  if (!target.firstChild) {
+    target.append(node);
+  } else {
+    target.firstChild.replaceWith(node);
+  }
   return node;
 };

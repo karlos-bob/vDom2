@@ -1,4 +1,4 @@
-import { createVNode, createDOMNode, patchNode } from './vdom';
+import { createVNode, createDOMNode } from './vdom';
 import { mount } from './dom';
 
 const createVApp = (state) => {
@@ -14,15 +14,10 @@ const createVApp = (state) => {
 };
 
 const state = { count: 0 };
-let vApp = createVApp(state);
-let app = mount(createDOMNode(vApp), document.getElementById('app'));
+const app = document.getElementById('app');
+mount(createDOMNode(createVApp(state)), app);
 
 setInterval(() => {
   state.count++;
-
-  // создаем vDom с новым состоянием счетчика
-  const nextVApp = createVApp(state);
-
-  app = patchNode(app, vApp, nextVApp);
-  vApp = nextVApp;
+  mount(createDOMNode(createVApp(state)), app);
 }, 1000);
